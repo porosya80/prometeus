@@ -14,3 +14,4 @@ result *= y
 print("Everybody sing a song:{}{}".format(result, "." if z == 0 else "!"))
 
 
+print(result)
