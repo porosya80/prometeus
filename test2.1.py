@@ -12,6 +12,7 @@ z = float(0.1)
 
 
 
-print (1/(z*math.sqrt(2*math.pi))*math.exp(-math.pow(x-y,2)/(2*(math.pow(z,2)))))
+# print (1/(z*math.sqrt(2*math.pi))*math.exp(-math.pow(x-y,2)/(2*(math.pow(z,2)))))
 
 print(1/(z * math.sqrt(2 * math.pi)) * math.exp(-1*(((x - y)**2)/(2*z**2))))
+
