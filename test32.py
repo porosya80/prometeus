@@ -1,13 +1,9 @@
 import sys
 
 
-# x = int((sys.argv[1]))
-# y = int((sys.argv[2]))
-# z = int((sys.argv[3]))
-
-x = 10
-y = 20
-z = 30
+x = float((sys.argv[1]))
+y = float((sys.argv[2]))
+z = float((sys.argv[3]))
 
 
 
