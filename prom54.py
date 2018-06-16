@@ -1,33 +1,31 @@
 def file_search(folder, filename):
-    print (" Vizov FUNC")
-    # print (folder)
-    result = ""
-    print(folder[0])
-    path=folder[0]
 
-    if filename in folder:
-        print ("ok")
-    for i in folder:
-        # print(i)
-        if i == filename:
-            print("ok")
-            path += "/" +filename
-            print("path ok {}".format(path))
+    path = folder[0]+"/"
+    if filename in folder[1:]:
+        return path + filename
+
+    for item in folder[1:]:
+        if isinstance(item, list) and len(item) > 1:
+            pth = file_search(item, filename)
+            if pth:
+                path = path + pth
             return path
-        elif isinstance(i, list):
-            path +=  "/" + (file_search(i, filename))
-            # print("path list {}".format(path))
 
-    print(path)
-    return path
-
-    # print(folder.count(filename))
+    return False if path == path else path
 
 
 
 
+folders = ['/home',
+         ['user1'],
+         ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py']]],
+         'work.ovpn',
+         'prometheus.7z',
+         ['user3', ['temp']],
+         'hey.py']
 
 
+print(f"RESULT {file_search(folders,'hereiam.py')}")
 
+assert (file_search(folders,'hereiam.py')) == "/home/user2/desktop/new folder/hereiam.py"
 
-print(file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py'))
